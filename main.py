@@ -8,7 +8,7 @@ from summary import gptsummary
 import time
 
 """
-This program processes an mp3 audio file and splits it into quarters. It then processes these chunks via OpenAi Whisper speech to text and creates an appended text file called transcript.txt and then it uses Openai GPT-3.5-turbo-16k to summarize the text into a few paragraphs when done. The user is required to fill in the starting mp3 audio file as the Audio_file_to_process variable below before running this program. Also be sure to configure your OpenAi API key in the Secrets before use. Too large of mp3 files may still max out RAM and produce an error unless system resources are boosted. Delete the transcript.txt file before use.
+This program processes an mp3 audio file and splits it into quarters. It requires FFMPEG. It then processes these chunks via OpenAi Whisper speech to text and creates an appended text file called transcript.txt and then it uses Openai GPT-3.5-turbo-16k to summarize the text into a few paragraphs when done. The user is required to fill in the starting mp3 audio file as the Audio_file_to_process variable below before running this program. Also be sure to configure your OpenAi API key in the Secrets before use. Too large of mp3 files may still max out RAM and produce an error unless system resources are boosted. Delete the transcript.txt file before use.
 """
 
 ####### Start here: ########
