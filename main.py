@@ -46,6 +46,11 @@ except KeyError:
 # Get a list of all files in the folder
 file_list = os.listdir("segmented")
 
+# delete old transcript.txt file if it exists
+if os.path.exists("transcript.txt"):
+  os.remove("transcript.txt")
+
+#create the transcript file and append whisper results
 for file_name in file_list:
   # Upload your own mp3 file using the Files menu on the sidebar.
   audio_file = open("segmented/"+file_name, "rb")
