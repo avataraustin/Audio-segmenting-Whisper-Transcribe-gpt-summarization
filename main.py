@@ -13,12 +13,12 @@ This program processes an mp3 audio file and splits it into quarters. It require
 
 ####### Start here: ########
 # USER MUST INPUT MP3 FILE NAME TO PROCESS INTO QUOTES BELOW:
-Audio_file_to_process = "training-cb1.mp3"
+Audio_file_to_process = "Christy_Barton.mp3"
 
 # USER SHOULD EDIT THIS GUIDING PROMPT FOR DETERMINING SPELLING etc. for 
 # THE WORDING OF THE TRANSCRIPTION
-# prompt_guide = "audio is the Iowa Ag Podcast with host, Peter Jaques"
-prompt_guide = "audio is a clip from the Progress Leaves Clues Youtube channel"
+prompt_guide = "audio is the Iowa Ag Podcast with host, Peter Jaques"
+# prompt_guide = "audio is a clip from the Progress Leaves Clues Youtube channel"
 ###### End inputs.  Run program if ready #########
 
 
