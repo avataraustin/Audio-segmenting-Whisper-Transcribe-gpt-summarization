@@ -13,8 +13,11 @@ This sprogram currently splits the target audio into quarters as mp3 files, lowe
 def split_audio(input_file, output_folder):
   audio = AudioSegment.from_file(input_file)
   
+  # make sure directory exists for storing audio segments
+  if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+    
   #reduce the bitrate and compression to reduce file size
-  
   
   split_length = len(audio) // 4
   

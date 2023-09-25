@@ -17,7 +17,8 @@ Audio_file_to_process = "training-cb1.mp3"
 
 # USER SHOULD EDIT THIS GUIDING PROMPT FOR DETERMINING SPELLING etc. for 
 # THE WORDING OF THE TRANSCRIPTION
-prompt_guide = "audio is the Iowa Ag Podcast with host, Peter Jaques"
+# prompt_guide = "audio is the Iowa Ag Podcast with host, Peter Jaques"
+prompt_guide = "audio is a clip from the Progress Leaves Clues Youtube channel"
 ###### End inputs.  Run program if ready #########
 
 
@@ -50,17 +51,15 @@ file_list = os.listdir("segmented")
 if os.path.exists("transcript.txt"):
   os.remove("transcript.txt")
 
-#create the transcript file and append whisper results
-for file_name in file_list:
-  # Upload your own mp3 file using the Files menu on the sidebar.
-  audio_file = open("segmented/"+file_name, "rb")
-  transcript = openai.Audio.transcribe("whisper-1", audio_file, prompt = prompt_guide)
-  transcript_file = open("transcript.txt", "a")
-  print("The transcript of the audio file is:\n\n")
-  print(transcript["text"])
-  print("\n\nTranscript saved to the file transcript.txt")
-  transcript_file.write(transcript["text"])
-  transcript_file.close()
+# Create the transcript file from audio segments and append whisper results
+with open("transcript.txt", "a") as transcript_file:
+  for file_name in file_list:
+    with open("segmented/" + file_name, "rb") as audio_file:
+      transcript = openai.Audio.transcribe("whisper-1", audio_file, prompt=prompt_guide)
+      print("The transcript of the audio file is:\n\n")
+      print(transcript["text"])
+      transcript_file.write(transcript["text"])
+      print("\n\nTranscript saved to the file transcript.txt")
 
 time.sleep(10)
 
