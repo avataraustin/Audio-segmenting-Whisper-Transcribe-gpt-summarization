@@ -26,6 +26,14 @@ prompt_guide = "audio is the Iowa Ag Podcast with host, Peter Jaques"
 logging.basicConfig(filename='app.log', filemode='a', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt= "%d-%b-%y %H:%M:%S", level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# make sure starting file size is less than 100 MB
+file_size = os.path.getsize(Audio_file_to_process)
+file_size_mb = file_size / (1024 * 1024)
+if file_size_mb >= 100:
+  print("audio file to process must be less than 100 MB")
+  logger.error("audio file to process was greater than 100 MB. Too large")
+  sys.exit(1)
+  
 # This imported function splits the beginning audio into 4ths
 # first param is mp3 file to split into quarters and save
 # into the segmented folder. 2nd param is folder to save to.
